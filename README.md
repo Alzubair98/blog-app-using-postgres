@@ -1,25 +1,30 @@
-# README
+# Blog app
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+> A project to write blogs
 
-Things you may want to cover:
+## Built With :hammer_and_wrench:
 
-* Ruby version
+- **GitHub flow:** Correct use of Branches for deployment and features development.
+- **Linters Check:** Local and Pull Request check for errors, bugs and stylistic errors in code.
 
-* System dependencies
+## Authors :writing_hand: :busts_in_silhouette:
 
-* Configuration
+:man_technologist: **Alzubair Alqaraghuli** :writing_hand:
 
-* Database creation
+- GitHub: [@Alzubair98](https://github.com/Alzubair98)
+- Twitter: [@FitZubair](https://twitter.com/FitZubair)
+- LinkedIn: [@Alzubair Alqaraghuli](https://www.linkedin.com/in/alzubair-alqaraghuli-272918233/)
 
-* Database initialization
+## 🤝 Contributing
 
-* How to run the test suite
+Contributions, issues, and feature requests are welcome!
 
-* Services (job queues, cache servers, search engines, etc.)
+Feel free to check the [issues page](../../issues/).
 
-* Deployment instructions
+## Show your support
 
-* ...
-# blog-app-using-postgres
+Give a ⭐️ if you like this project!
+
+## 📝 License
+
+This project is [MIT](./MIT.md) licensed.
