@@ -1,6 +1,6 @@
 require_relative "../rails_helper"
 
-RSpec.describe User, type: :post do 
+RSpec.describe Post, type: :post do 
     subject { User.new(name: "alzubair", posts_counter: 0) }
     before { @new_post = Post.new(user: subject,title: "alzubair", likes_counter: 0, comments_counter: 0) }
     

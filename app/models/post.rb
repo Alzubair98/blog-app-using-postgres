@@ -6,9 +6,9 @@ class Post < ApplicationRecord
   has_many :comments
   has_many :likes
   belongs_to :user
-  after_create :update_counter
+  after_save :upadate_posts_counter
 
-  def upadate_countr
+  def upadate_posts_counter
     user.update(posts_counter: user.posts.count)
   end
 
