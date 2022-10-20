@@ -9,12 +9,7 @@ class Post < ApplicationRecord
   after_create :update_counter
 
   def upadate_countr
-    if user.posts_countr
-      user.posts_counter += 1
-    else
-      user.posts_counter = 1
-    end
-    user.save
+    user.update(posts_counter: user.posts.count)
   end
 
   def most_recent_comments
