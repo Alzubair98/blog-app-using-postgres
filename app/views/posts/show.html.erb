@@ -1,1 +1,20 @@
-<h1>spesific user post</h1>
+<div>
+  <h1><%=@post.text%></h1>
+  <p>comments: <%= @post.comments_counter || 0%></p>
+  <p>likes: <%= @post.likes_counter || 0%></p>
+  <hr />
+  <h1>Comments</h1>
+  <hr />
+  <%if @comments.empty?%>
+  <h1>There is no comments</h1>
+  <%end%>
+  <% @user.each do |u|%>
+
+  <% @comments.each do |comment|%>
+  <%if u.id == comment.user_id%>
+  <span><strong><%= u.name%></strong>: </span>
+  <span><%= comment.text%></span><br />
+  <%end%>
+  <%end%>
+  <%end%>
+</div>

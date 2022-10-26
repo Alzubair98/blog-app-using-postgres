@@ -1,6 +1,6 @@
 # Blog app
 
-> A project to write blogs
+> A project to write blogs for users : any user can sign in and post anything they want and other users can like and comment on other people posts
 
 ## Built With :hammer_and_wrench:
 
@@ -14,6 +14,10 @@
 - GitHub: [@Alzubair98](https://github.com/Alzubair98)
 - Twitter: [@FitZubair](https://twitter.com/FitZubair)
 - LinkedIn: [@Alzubair Alqaraghuli](https://www.linkedin.com/in/alzubair-alqaraghuli-272918233/)
+
+## Getting Started
+
+you can clone that app using git clone, and run it on your machine
 
 ## 🤝 Contributing
 
