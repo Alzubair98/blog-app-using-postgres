@@ -12,8 +12,8 @@
 
   <% @comments.each do |comment|%>
   <%if u.id == comment.user_id%>
-  <h2><%= u.name%>:-</h2>
-  <h3><%= comment.text%>.</h3>
+  <span><strong><%= u.name%></strong>: </span>
+  <span><%= comment.text%></span><br />
   <%end%>
   <%end%>
   <%end%>
