@@ -5,6 +5,7 @@ class UsersController < ApplicationController
 
   def show
     find_user
+    @posts = @user.last_3_posts
   end
 
   private

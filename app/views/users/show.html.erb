@@ -1,1 +1,22 @@
-<h1>Here is a spesific user</h1>
+<div>
+  <img src='#{ <%= @user.photo %> }' width='100' height='100' />
+  <h1><%= @user.name%></h1>
+  <h3>Bio: <%=@user.bio %></h3>
+</div>
+<hr />
+<h1>Last Posts</h1>
+<div>
+  <% if @posts.empty? %>
+  <h1>This Uer Dose Not Have Any Posts</h1>
+  <%end%>
+  <% @posts.each do |post|%>
+  <% if post.user_id = @user.id %>
+  <div>
+    <h2><%= post.title%></h2>
+    <h3><%= post.text%></h3>
+    <p>comments: <%= post.comments_counter || 0%></p>
+    <p>likes: <%= post.likes_counter || 0%></p>
+  </div>
+  <%end%>
+  <%end%>
+</div>
