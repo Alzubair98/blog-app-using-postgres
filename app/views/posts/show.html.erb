@@ -18,3 +18,11 @@
   <%end%>
   <%end%>
 </div>
+
+<div>
+  <%=form_with(model: @like,url: user_post_likes_path(@user,@post), local:true) do |f|%>
+  <p>
+    <%= f.submit "like"%>
+  </p>
+  <%end%>
+</div>

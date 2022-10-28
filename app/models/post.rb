@@ -3,7 +3,7 @@ class Post < ApplicationRecord
   validates :comments_counter, numericality: { only_integer: true }, comparison: { greater_than_or_equal_to: 0 }
   validates :likes_counter, numericality: { only_integer: true }, comparison: { greater_than_or_equal_to: 0 }
 
-  has_many :comments
+  has_many :comments, foreign_key: 'post_id'
   has_many :likes
   belongs_to :user
   after_save :upadate_posts_counter
