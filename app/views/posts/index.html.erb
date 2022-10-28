@@ -6,18 +6,27 @@
 <hr />
 <h1>All Posts</h1>
 <div>
-  <% if @posts.empty? %>
-  <h1>This Uer Dose Not Have Any Posts</h1>
-  <%end%>
+  <% if @user.posts.empty? %>
+  <h1>This User Dose Not Have Any Posts</h1>
+  <%else%>
   <% @posts.each do |post|%>
-  <% if post.user_id = @user.id %>
+  <% if post.user_id == @user.id %>
   <div>
     <h2><%= post.title%></h2>
     <h3><%= post.text%></h3>
     <p>comments: <%= post.comments_counter || 0%>, likes: <%= post.likes_counter || 0%></p>
   </div>
+  <div>
+    <%=form_with(model: @like,url: user_post_likes_path(@user,post), local:true) do |f|%>
+    <p>
+      <%= f.submit "like"%>
+    </p>
+    <%end%>
+    <%= link_to "Add Comment", "posts/#{post.id}/comments/new"%>
+  </div>
   <hr />
-
   <%end%>
   <%end%>
+  <%end%>
+  <%= link_to "New Post" , new_user_post_url%>
 </div>
