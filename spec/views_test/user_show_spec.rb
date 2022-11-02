@@ -2,6 +2,7 @@ require_relative '../rails_helper'
 
 RSpec.describe 'user_show', type: :feature do
   before(:each) do
+    DatabaseCleaner.clean
     @user = User.create(
       name: 'zubair',
       photo: 'https://unsplash.com/photos/F_-0BxGuVvo',
