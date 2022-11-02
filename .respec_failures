@@ -1,0 +1,6 @@
+post controller the index method show all users
+post controller the index method render index template
+post controller the index method the veiw body is correct (index)
+post controller the show method show specific user post veiw
+user controller the index method the veiw body is correct (index)
+user controller the show method show specific user veiw

@@ -46,15 +46,16 @@ gem 'ffi'
 
 # Use Sass to process CSS
 # gem "sassc-rails"
-
+gem "bullet", "~> 7.0"
 # Use Active Storage variants [https://guides.rubyonrails.org/active_storage_overview.html#transforming-images]
 # gem "image_processing", "~> 1.2"
 
 group :development, :test do
   # See https://guides.rubyonrails.org/debugging_rails_applications.html#debugging-with-the-debug-gem
-  gem 'debug', platforms: %i[mri mingw x64_mingw]
+  gem "debug", platforms: %i[mri mingw x64_mingw]
+  gem 'rspec-rails'
   gem 'rails-controller-testing'
-  gem 'rspec-rails', '~> 6.0.0'
+  gem "database_cleaner"
 end
 
 group :development do
@@ -71,6 +72,7 @@ end
 group :test do
   # Use system testing [https://guides.rubyonrails.org/testing.html#system-testing]
   gem 'capybara'
+  gem 'faker', '~> 1.6', '>= 1.6.6'
   gem 'selenium-webdriver'
   gem 'webdrivers'
 end
