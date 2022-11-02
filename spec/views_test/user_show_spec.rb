@@ -23,7 +23,6 @@ RSpec.describe 'user_show', type: :feature do
     @post3.save
 
     visit "/users/#{@user.id}"
-
   end
 
   it 'shows the username of the users' do
@@ -31,7 +30,7 @@ RSpec.describe 'user_show', type: :feature do
   end
 
   it 'shows the photos of the users' do
-    expect(page.html).to include("user-img")
+    expect(page.html).to include('user-img')
   end
 
   it 'shows the number of post of each user' do
@@ -43,16 +42,16 @@ RSpec.describe 'user_show', type: :feature do
   end
 
   it ' shows the first 3 posts' do
-    post = Post.find(@post1.id) 
-    post2 =Post.find(@post2.id)
+    post = Post.find(@post1.id)
+    post2 = Post.find(@post2.id)
     post3 = Post.last
     expect(page).to have_content("#{post.title}")
     expect(page).to have_content("#{post2.title}")
     expect(page).to have_content("#{post3.title}")
   end
 
-  it 'test all posts button' do 
-    click_link("ALL Posts")
+  it 'test all posts button' do
+    click_link('ALL Posts')
     expect(page.current_path).to eql("/users/#{@user.id}/posts")
   end
 

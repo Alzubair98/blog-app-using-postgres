@@ -16,8 +16,8 @@ RSpec.describe 'user_index', type: :feature do
     expect(page).to have_content("#{@user.name}")
   end
 
-  it 'shows the photo of the user' do 
-    expect(page.html).to include("user-img")
+  it 'shows the photo of the user' do
+    expect(page.html).to include('user-img')
   end
 
   it 'shows the number of posts' do
@@ -29,7 +29,4 @@ RSpec.describe 'user_index', type: :feature do
     click_link(user.name)
     expect(page.current_path).to eql("/users/#{user.id}")
   end
-
-  
-
 end
