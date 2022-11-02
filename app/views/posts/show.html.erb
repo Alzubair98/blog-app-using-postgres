@@ -1,5 +1,6 @@
 <div>
-  <h1><%=@post.text%></h1>
+  <h1><%=@post.title%></h1>
+  <h2><%=@post.text%></h2>
   <p>comments: <%= @post.comments_counter || 0%></p>
   <p>likes: <%= @post.likes_counter || 0%></p>
   <hr />

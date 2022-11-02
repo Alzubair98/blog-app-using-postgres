@@ -58,5 +58,7 @@ Style/HashTransformKeys:
   Enabled: false
 Style/HashTransformValues:
   Enabled: false
+Style/RedundantInterpolation:
+  Enabled: false
 Layout/EndOfLine:
   Enabled: false

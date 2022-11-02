@@ -1,30 +1,38 @@
 <div>
-  <img src='#{<%= @user.photo %>}' alt='user-img' width='100' height='100' />
+  <img src='#{<%= @user.photo %>}' alt='user-img' />
   <span><strong><%= @user.name%></strong></span><br />
   <span><strong>number of posts: <%=@user.posts_counter || 0%><strong></span>
 </div>
 <hr />
 <h1>All Posts</h1>
+<hr />
 <div>
   <% if @user.posts.empty? %>
   <h1>This User Dose Not Have Any Posts</h1>
   <%else%>
   <% @posts.each do |post|%>
   <% if post.user_id == @user.id %>
-  <div>
-    <h2><%= post.title%></h2>
-    <h3><%= post.text%></h3>
-    <p>comments: <%= post.comments_counter || 0%>, likes: <%= post.likes_counter || 0%></p>
+  <div class="post-div">
+    <div>
+      <h2><%= link_to post.title, "/users/#{@user.id}/posts/#{post.id}"%></h2>
+      <h3><%= post.text%></h3>
+      <p>comments: <%= post.comments_counter || 0%>, likes: <%= post.likes_counter || 0%></p>
+    </div>
+    <div>
+      <%=form_with(model: @like,url: user_post_likes_path(@user,post), local:true) do |f|%>
+      <p>
+        <%= f.submit "like"%>
+      </p>
+      <%end%>
+      <%= link_to "Add Comment", "posts/#{post.id}/comments/new"%>
+    </div>
   </div>
-  <div>
-    <%=form_with(model: @like,url: user_post_likes_path(@user,post), local:true) do |f|%>
-    <p>
-      <%= f.submit "like"%>
-    </p>
+  <div class='post-div'>
+    <h1>Comments</h1>
+    <% post.comments.includes(:user).each do |comment|%>
+    <h3><%= comment.user.name %>:<%= comment.text %></h3>
     <%end%>
-    <%= link_to "Add Comment", "posts/#{post.id}/comments/new"%>
   </div>
-  <hr />
   <%end%>
   <%end%>
   <%end%>
