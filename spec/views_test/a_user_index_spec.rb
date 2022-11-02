@@ -2,7 +2,7 @@ require_relative '../rails_helper'
 
 RSpec.describe 'user_index', type: :feature do
   before(:each) do
-    DatabaseCleaner.clean
+    DatabaseCleaner.clean_with(:truncation)
     @user = User.create(
       name: 'zubair',
       photo: 'https://unsplash.com/photos/F_-0BxGuVvo',
@@ -13,9 +13,9 @@ RSpec.describe 'user_index', type: :feature do
   end
 
   it 'should redirect to user show page when a name is clicked' do
-    user = User.find(@user.id)
-    click_link(user.name)
-    expect(page.current_path).to eql(user_path(id: user.id))
+    user1 = User.find(@user.id)
+    click_link(user1.name)
+    expect(page.current_path).to eql(user_path(user1))
   end
 
   it 'shows the username of the users' do
