@@ -29,5 +29,4 @@ RSpec.describe 'user_index', type: :feature do
   it 'shows the number of posts' do
     expect(page).to have_content("#{@user.posts_counter}")
   end
-
 end
