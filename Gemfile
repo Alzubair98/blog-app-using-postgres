@@ -44,6 +44,8 @@ gem 'bootsnap', require: false
 
 gem 'ffi'
 
+gem 'devise'
+
 # Use Sass to process CSS
 # gem "sassc-rails"
 gem 'bullet', '~> 7.0'

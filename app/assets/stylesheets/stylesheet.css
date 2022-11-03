@@ -5,3 +5,11 @@
   border-width: 2px;
   margin: 0.5rem 0;
 }
+
+.no-underline {
+  text-decoration: none;
+}
+
+.red-color {
+  color: red;
+}
