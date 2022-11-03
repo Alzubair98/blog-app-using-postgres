@@ -16,6 +16,7 @@
     <h2><%= link_to post.title, "/users/#{@user.id}/posts/#{post.id}"%></h2>
     <h3><%= post.text%></h3>
     <p>comments: <%= post.comments_counter || 0%>, likes: <%= post.likes_counter || 0%></p>
+    <%= link_to "Delete Post" ,  "/users/#{@user.id}/posts/#{post.id}", data: { turbo_method: "delete", turbo_confirm: "Are you sure to delete" } ,class: "no-underline red-color"%>
   </div>
   <%end%>
   <%end%>

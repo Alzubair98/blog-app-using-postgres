@@ -23,6 +23,12 @@ class PostsController < ApplicationController
     redirect_to user_posts_path
   end
 
+  def destroy 
+    find_post
+    @post.destroy
+    redirect_to user_posts_path
+  end
+
   private
 
   def find_post
