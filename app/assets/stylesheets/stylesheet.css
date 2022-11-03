@@ -1,3 +1,4 @@
+
 .post-div {
   border-style: solid;
   border-color: black;
@@ -5,10 +6,10 @@
   margin: 0.5rem 0;
 }
 
-.no-underline{
+.no-underline {
   text-decoration: none;
 }
 
-.red-color{
-  color: red
+.red-color {
+  color: red;
 }
