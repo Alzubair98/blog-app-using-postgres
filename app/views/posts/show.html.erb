@@ -14,7 +14,7 @@
   <%if u.id == comment.user_id%>
   <p><span><strong><%= u.name%></strong>: </span>
     <span><%= comment.text%></span>
-    <span><%= link_to "Delete Comment" ,  user_post_comment_path(u,@post), data: { turbo_method: "delete", turbo_confirm: "Are you sure to delete" } ,class: "no-underline red-color margin"%></span>
+    <span><%= link_to "Delete Comment" ,  user_post_comment_path(u,@post,comment), data: { turbo_method: "delete", turbo_confirm: "Are you sure to delete" } ,class: "no-underline red-color margin"%></span>
   </p>
   <%end%>
   <%end%>

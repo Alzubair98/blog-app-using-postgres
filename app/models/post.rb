@@ -7,6 +7,7 @@ class Post < ApplicationRecord
   has_many :likes
   belongs_to :user
   after_save :upadate_posts_counter
+  after_destroy :upadate_posts_counter
 
   def upadate_posts_counter
     user.update(posts_counter: user.posts.count)
