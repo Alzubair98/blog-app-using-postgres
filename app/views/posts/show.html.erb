@@ -12,8 +12,10 @@
   <% @user.each do |u|%>
   <% @comments.each do |comment|%>
   <%if u.id == comment.user_id%>
-  <span><strong><%= u.name%></strong>: </span>
-  <span><%= comment.text%></span><br />
+  <p><span><strong><%= u.name%></strong>: </span>
+    <span><%= comment.text%></span>
+    <span><%= link_to "Delete Comment" ,  user_post_comment_path(u,@post), data: { turbo_method: "delete", turbo_confirm: "Are you sure to delete" } ,class: "no-underline red-color margin"%></span>
+  </p>
   <%end%>
   <%end%>
   <%end%>
