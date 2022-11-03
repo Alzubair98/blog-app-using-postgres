@@ -5,9 +5,9 @@ class User < ApplicationRecord
          :recoverable, :rememberable, :validatable, :confirmable
   validates :name, presence: true, length: { minimum: 1, maximum: 100 }
   validates :posts_counter, numericality: { only_integer: true }, comparison: { greater_than_or_equal_to: 0 }
-  has_many :posts
-  has_many :comments
-  has_many :likes
+  has_many :posts, foreign_key: 'user_id', dependent: :destroy
+  has_many :comments, foreign_key: 'user_id', dependent: :destroy
+  has_many :likes, foreign_key: 'user_id', dependent: :destroy
 
   def last_3_posts
     posts.last(3)

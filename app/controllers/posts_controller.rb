@@ -1,5 +1,4 @@
 class PostsController < ApplicationController
-  
   def show
     find_post
     @comments = @post.most_recent_comments
@@ -22,7 +21,7 @@ class PostsController < ApplicationController
     redirect_to user_posts_path
   end
 
-  def destroy 
+  def destroy
     find_post
     @post.destroy
     redirect_to user_posts_path
