@@ -1,7 +1,7 @@
 <div>
   <img src='#{ <%= @user.photo %> }' alt="user-img" />
   <span><%= @user.name%></span>
-  <h4>Number of posts:- <%= @user.posts_counter || 0%></h4>
+  <h4>Number of posts:- <%= @user.posts_counter %></h4>
   <h3>Bio: <%=@user.bio %></h3>
 </div>
 <hr />
@@ -11,14 +11,11 @@
   <h1>This User Dose Not Have Any Posts</h1>
   <%end%>
   <% @posts.each do |post|%>
-  <% if post.user_id == @user.id %>
   <div class="post-div">
     <h2><%= link_to post.title, "/users/#{@user.id}/posts/#{post.id}"%></h2>
     <h3><%= post.text%></h3>
-    <p>comments: <%= post.comments_counter || 0%>, likes: <%= post.likes_counter || 0%></p>
-    <%= link_to "Delete Post" ,  "/users/#{@user.id}/posts/#{post.id}", data: { turbo_method: "delete", turbo_confirm: "Are you sure to delete" } ,class: "no-underline red-color"%>
+    <p>comments: <%= post.comments_counter%>, likes: <%= post.likes_counter %></p>
   </div>
   <%end%>
-  <%end%>
-  <%= link_to "ALL Posts" , "#{@user.id}/posts"%>
+  <%= link_to "ALL Posts" , "#{@user.id}/posts", class: "no-underline"%>
 </div>
