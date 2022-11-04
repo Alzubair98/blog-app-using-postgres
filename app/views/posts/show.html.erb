@@ -1,8 +1,10 @@
 <div>
   <h1><%=@post.title%></h1>
   <h2><%=@post.text%></h2>
-  <p>comments: <%= @post.comments_counter || 0%></p>
-  <p>likes: <%= @post.likes_counter || 0%></p>
+  <p>comments: <%= @post.comments_counter || 0%> , likes: <%= @post.likes_counter || 0%></p>
+  <%if can? :destroy, @post%>
+  <%= link_to "Delete Post" ,  "/users/#{@post.user.id}/posts/#{@post.id}", data: { turbo_method: "delete", turbo_confirm: "Are you sure to delete" } ,class: "no-underline red-color"%>
+  <%end%>
   <hr />
   <h1>Comments</h1>
   <hr />
@@ -10,11 +12,16 @@
   <h1>There is no comments</h1>
   <%end%>
   <% @user.each do |u|%>
-
   <% @comments.each do |comment|%>
   <%if u.id == comment.user_id%>
-  <span><strong><%= u.name%></strong>: </span>
-  <span><%= comment.text%></span><br />
+  <p><span><strong><%= u.name%></strong>: </span>
+    <span><%= comment.text%></span>
+    <span>
+      <%if can? :destroy , comment%>
+      <%= link_to "Delete Comment" ,  user_post_comment_path(u,@post,comment), data: { turbo_method: "delete", turbo_confirm: "Are you sure to delete" } ,class: "no-underline red-color margin"%>
+      <%end%>
+    </span>
+  </p>
   <%end%>
   <%end%>
   <%end%>
@@ -28,4 +35,4 @@
   <%end%>
 </div>
 
-<%= link_to "Posts", user_posts_path%>
+<%= link_to "Posts", user_posts_path, class: "no-underline"%>

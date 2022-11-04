@@ -14,7 +14,7 @@
   <% if post.user_id == @user.id %>
   <div class="post-div">
     <div>
-      <h2><%= link_to post.title, "/users/#{@user.id}/posts/#{post.id}"%></h2>
+      <h2><%= link_to post.title, "/users/#{@user.id}/posts/#{post.id}", class: "no-underline"%></h2>
       <h3><%= post.text%></h3>
       <p>comments: <%= post.comments_counter || 0%>, likes: <%= post.likes_counter || 0%></p>
     </div>
@@ -24,17 +24,24 @@
         <%= f.submit "like"%>
       </p>
       <%end%>
-      <%= link_to "Add Comment", "posts/#{post.id}/comments/new"%>
+      <p>
+        <% if can? :destroy, post%>
+        <%= link_to "Delete Post" ,  "/users/#{@user.id}/posts/#{post.id}", data: { turbo_method: "delete", turbo_confirm: "Are you sure to delete" } ,class: "no-underline red-color"%></p>
+      <%end%>
+      <%= link_to "Add Comment", "posts/#{post.id}/comments/new", class: "no-underline"%>
     </div>
   </div>
   <div class='post-div'>
     <h1>Comments</h1>
     <% post.comments.includes(:user).each do |comment|%>
-    <h3><%= comment.user.name %>:<%= comment.text %></h3>
+    <h3><%= comment.user.name %>:<%= comment.text %>
+      <% if can? :destroy, comment%>
+      <%= link_to "Delete Comment" ,  user_post_comment_path(comment.user.id,comment.post.id,comment), data: { turbo_method: "delete", turbo_confirm: "Are you sure to delete" } ,class: "no-underline red-color margin"%></h3>
+    <%end%>
     <%end%>
   </div>
   <%end%>
   <%end%>
   <%end%>
-  <%= link_to "New Post" , new_user_post_url%>
+  <%= link_to "New Post" , new_user_post_url ,class: "no-underline"%>
 </div>
