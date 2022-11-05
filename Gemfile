@@ -52,6 +52,7 @@ gem 'devise-jwt'
 gem 'fast_jsonapi'
 gem 'jwt'
 gem 'rack-cors'
+gem 'rswag'
 
 # Use Sass to process CSS
 # gem "sassc-rails"
