@@ -4,6 +4,12 @@ class PostsController < ApplicationController
     @comments = @post.most_recent_comments
     @user = User.all
 
+    respond_to do |format|
+      format.html
+      format.xml {render :xml => @post}
+      format.json {render :json => @post.to_json(include: [:comments])}
+    end
+
     
   end
 
