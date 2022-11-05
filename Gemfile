@@ -50,8 +50,8 @@ gem 'ffi'
 gem 'devise'
 gem 'devise-jwt'
 gem 'fast_jsonapi'
-gem 'rack-cors'
 gem 'jwt'
+gem 'rack-cors'
 
 # Use Sass to process CSS
 # gem "sassc-rails"

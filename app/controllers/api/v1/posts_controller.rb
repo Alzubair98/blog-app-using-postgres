@@ -1,6 +1,6 @@
 class Api::V1::PostsController < ApplicationController
   def index
-    @posts = Post.all 
+    @posts = Post.all
     render json: @posts
   end
 
@@ -10,6 +10,4 @@ class Api::V1::PostsController < ApplicationController
     @user = User.all
     render json: @post.to_json(include: [:comments])
   end
-
-
 end
