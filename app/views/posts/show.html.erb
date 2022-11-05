@@ -12,7 +12,7 @@
   <h1>There is no comments</h1>
   <%end%>
   <% @user.each do |u|%>
-  <% @comments.each do |comment|%>
+  <% @comments.includes([:user]).each do |comment|%>
   <%if u.id == comment.user_id%>
   <p><span><strong><%= u.name%></strong>: </span>
     <span><%= comment.text%></span>

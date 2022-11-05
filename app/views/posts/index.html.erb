@@ -10,7 +10,7 @@
   <% if @user.posts.empty? %>
   <h1>This User Dose Not Have Any Posts</h1>
   <%else%>
-  <% @posts.each do |post|%>
+  <% @posts.includes([:user]).each do |post|%>
   <% if post.user_id == @user.id %>
   <div class="post-div">
     <div>
@@ -33,7 +33,7 @@
   </div>
   <div class='post-div'>
     <h1>Comments</h1>
-    <% post.comments.includes(:user).each do |comment|%>
+    <% post.comments.includes(:user, :post).each do |comment|%>
     <h3><%= comment.user.name %>:<%= comment.text %>
       <% if can? :destroy, comment%>
       <%= link_to "Delete Comment" ,  user_post_comment_path(comment.user.id,comment.post.id,comment), data: { turbo_method: "delete", turbo_confirm: "Are you sure to delete" } ,class: "no-underline red-color margin"%></h3>
